@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ponto Perseguindo Cursor</title>
+    <style>
+        #ponto {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+            transition: all 0.1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div id="ponto"></div>
+
+    <script>
+        const monstro = document.querySelector("#ponto");
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let monsterX = window.innerWidth / 2;
+        let monsterY = window.innerHeight / 2;
+        let speed = 0.05; 
+
+        function movePoint() {
+            let distX = mouseX - monsterX;
+            let distY = mouseY - monsterY;
+            monsterX += distX * speed;
+            monsterY += distY * speed;
+            monstro.style.left = monsterX + "px";
+            monstro.style.top = monsterY + "px";
+            requestAnimationFrame(movePoint);
+        }
+
+        function updateMousePosition(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        }
+
+        movePoint();
+
+        document.addEventListener("mousemove", updateMousePosition);
+    </script>
+</body>
+</html>
