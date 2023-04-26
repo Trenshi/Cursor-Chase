@@ -3,10 +3,10 @@
 <head>
     <title>Ponto Perseguindo Cursor</title>
     <style>
-        #ponto {
+        #point {
             position: absolute;
-            width: 50px;
-            height: 50px;
+            width: 15px;
+            height: 15px;
             background-color: red;
             border-radius: 50%;
             transition: all 0.1s ease-in-out;
@@ -14,23 +14,23 @@
     </style>
 </head>
 <body>
-    <div id="ponto"></div>
+    <div id="point"></div>
 
     <script>
-        const monstro = document.querySelector("#ponto");
+        const point = document.querySelector("#point");
         let mouseX = window.innerWidth / 2;
         let mouseY = window.innerHeight / 2;
-        let monsterX = window.innerWidth / 2;
-        let monsterY = window.innerHeight / 2;
+        let pointX = window.innerWidth / 2;
+        let pointY = window.innerHeight / 2;
         let speed = 0.05; 
 
         function movePoint() {
-            let distX = mouseX - monsterX;
-            let distY = mouseY - monsterY;
-            monsterX += distX * speed;
-            monsterY += distY * speed;
-            monstro.style.left = monsterX + "px";
-            monstro.style.top = monsterY + "px";
+            let distX = mouseX - pointX;
+            let distY = mouseY - pointY;
+            pointX += distX * speed;
+            pointY += distY * speed;
+            point.style.left = pointX + "px";
+            point.style.top = pointY + "px";
             requestAnimationFrame(movePoint);
         }
 
